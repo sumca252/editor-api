@@ -59,6 +59,24 @@ const editor = {
             await db.client.close();
         }
     },
+    getOneById: async function getOneById(req, res) {
+        try {
+            db = await database.getDb();
+            const data = await db.collection.findOne({
+                _id: ObjectId(req.params.id),
+            });
+
+            if (data) {
+                return res.status(200).json({ data: data });
+            } else {
+                return res.status(404).json({ message: "No data found" });
+            }
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        } finally {
+            await db.client.close();
+        }
+    },
 };
 
 module.exports = editor;
