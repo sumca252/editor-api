@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const { showWelcomeMessage } = require("../controllers/editor.controller");
+const { getAllData } = require("../controllers/editor.controller");
 
-router.get("/", showWelcomeMessage);
+router.get("/", getAllData);
 
 module.exports = router;
