@@ -26,6 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 // routes
 app.use("/api/editor", require("./routes/editor.routes"));
 
+// 404 handler - must be last route handler
+app.use((req, res, next) => {
+    res.status(404).json({ message: "Not found" });
+    next();
+});
+
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
 module.exports = server;
