@@ -1,4 +1,5 @@
 # Editor API 
+Backend API for [editor](https://github.com/sumca252/editor). 
 
 ## Install dependencies
 ```
