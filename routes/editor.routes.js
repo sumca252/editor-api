@@ -1,7 +1,8 @@
 const router = require("express").Router();
 
-const { getAllData } = require("../controllers/editor.controller");
+const { getAllData, insertData } = require("../controllers/editor.controller");
 
 router.get("/", getAllData);
+router.post("/", insertData);
 
 module.exports = router;
