@@ -1,4 +1,5 @@
 const database = require("../db/database");
+let ObjectId = require("mongodb").ObjectId;
 let db;
 
 const editor = {
@@ -31,6 +32,26 @@ const editor = {
                 return res.status(201).json({ message: "Data inserted" });
             } else {
                 return res.status(500).json({ message: "Data not inserted" });
+            }
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        } finally {
+            await db.client.close();
+        }
+    },
+    updateById: async function updateById(req, res) {
+        try {
+            console.log(req.params.id);
+            db = await database.getDb();
+            const data = await db.collection.updateOne(
+                { _id: ObjectId(req.params.id) },
+                { $set: { title: req.body.title, content: req.body.content } }
+            );
+
+            if (data.modifiedCount) {
+                return res.status(200).json({ data: data });
+            } else {
+                return res.status(500).json({ message: "Data not updated" });
             }
         } catch (error) {
             return res.status(500).json({ message: error.message });
