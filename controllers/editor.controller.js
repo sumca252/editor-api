@@ -77,6 +77,18 @@ const editor = {
             await db.client.close();
         }
     },
+    deleteAllData: async function deleteAllData(req, res) {
+        try {
+            db = await database.getDb();
+            await db.collection.deleteMany({});
+
+            return res.status(200).json({ message: "Data deleted" });
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        } finally {
+            await db.client.close();
+        }
+    },
 };
 
 module.exports = editor;
