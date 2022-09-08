@@ -5,6 +5,7 @@ const {
     insertData,
     updateById,
     getOneById,
+    deleteAllData,
 } = require("../controllers/editor.controller");
 
 // GET /api/editor - get all editor data from the database
@@ -18,5 +19,8 @@ router.put("/:id", updateById);
 
 // GET /api/editor/:id - get data by id
 router.get("/:id", getOneById);
+
+// GET /api/editor/reset - delete all data from the database
+router.delete("/reset", deleteAllData);
 
 module.exports = router;

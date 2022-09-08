@@ -1,5 +1,6 @@
 const database = require("../db/database");
 let ObjectId = require("mongodb").ObjectId;
+const defaults = require("../db/defaults.json");
 let db;
 
 const editor = {
@@ -71,6 +72,22 @@ const editor = {
             } else {
                 return res.status(404).json({ message: "No data found" });
             }
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        } finally {
+            await db.client.close();
+        }
+    },
+    deleteAllData: async function deleteAllData(req, res) {
+        try {
+            db = await database.getDb();
+            await db.collection.deleteMany({});
+
+            await db.collection.insertMany(defaults);
+
+            return res
+                .status(200)
+                .json({ message: "Data deleted and inserted defaults" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
         } finally {
