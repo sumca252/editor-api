@@ -1,5 +1,6 @@
 const database = require("../db/database");
 let ObjectId = require("mongodb").ObjectId;
+const defaults = require("../db/defaults.json");
 let db;
 
 const editor = {
@@ -82,7 +83,11 @@ const editor = {
             db = await database.getDb();
             await db.collection.deleteMany({});
 
-            return res.status(200).json({ message: "Data deleted" });
+            await db.collection.insertMany(defaults);
+
+            return res
+                .status(200)
+                .json({ message: "Data deleted and inserted defaults" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
         } finally {

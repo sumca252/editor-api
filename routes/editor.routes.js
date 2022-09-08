@@ -20,7 +20,7 @@ router.put("/:id", updateById);
 // GET /api/editor/:id - get data by id
 router.get("/:id", getOneById);
 
-// DELETE /api/editor/reset - delete all data from the database
+// GET /api/editor/reset - delete all data from the database
 router.delete("/reset", deleteAllData);
 
 module.exports = router;
