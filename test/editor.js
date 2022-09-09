@@ -60,7 +60,8 @@ describe("Editor", () => {
                 .get("/api/editor")
                 .end((err, res) => {
                     res.should.have.status(200);
-
+                    res.body.should.be.a("object");
+                    res.body.data.length.should.be.above(0);
                     done();
                 });
         });
