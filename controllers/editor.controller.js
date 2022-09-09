@@ -29,8 +29,10 @@ const editor = {
                 content: req.body.content,
             });
 
-            if (data.acknowledged === true) {
-                return res.status(201).json({ message: "Data inserted" });
+            if (data.insertedId) {
+                return res
+                    .status(201)
+                    .json({ id: data.insertedId, message: "Data inserted" });
             } else {
                 return res.status(500).json({ message: "Data not inserted" });
             }
@@ -50,7 +52,7 @@ const editor = {
             );
 
             if (data.modifiedCount) {
-                return res.status(200).json({ data: data });
+                return res.status(200).json({ message: "Data updated" });
             } else {
                 return res.status(500).json({ message: "Data not updated" });
             }
