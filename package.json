@@ -4,10 +4,12 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "nyc --reporter=html --reporter=text --reporter=clover mocha --timeout 10000",
+        "posttest": "npm run eslint",
         "eslint": "eslint \"**/*.js\"",
         "fix": "eslint \"**/*.js\" --fix",
-        "start": "nodemon server.js"
+        "start": "nodemon server.js",
+        "clean": "rm -rf node_modules package-lock.json && npm install"
     },
     "keywords": [],
     "author": "",
@@ -20,9 +22,13 @@
         "morgan": "^1.10.0"
     },
     "devDependencies": {
+        "chai": "^4.3.6",
+        "chai-http": "^4.3.0",
         "eslint": "^8.23.0",
         "eslint-plugin-react": "^7.31.4",
         "javascript-style-guide": "^1.0.1",
-        "nodemon": "^2.0.19"
+        "mocha": "^10.0.0",
+        "nodemon": "^2.0.19",
+        "nyc": "^15.1.0"
     }
 }
