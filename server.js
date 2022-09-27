@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const port = process.env.PORT || 3000;
 const express = require("express");
+const session = require("express-session");
 const morgan = require("morgan");
 const cors = require("cors");
 
@@ -39,7 +40,6 @@ io.sockets.on("connection", function (socket) {
     });
 });
 
-app.use(cors());
 app.disable("x-powered-by");
 
 // don't show the log when it is test
@@ -54,8 +54,27 @@ app.use(express.json());
 // parse application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+// enable cors
+app.use(
+    cors({
+        origin: "*",
+        methods: ["GET", "POST"],
+        credentials: true,
+    })
+);
+
+// enable sessions
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+
 // routes
 app.use("/api/editor", require("./routes/editor.routes"));
+app.use("/api/auth", require("./routes/auth.routes"));
 
 // 404 handler - must be last route handler
 app.use((req, res, next) => {
