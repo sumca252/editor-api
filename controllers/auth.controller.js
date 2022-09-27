@@ -24,8 +24,7 @@ const authController = {
             const user = await db.collection.findOne({ email });
 
             if (user) {
-                console.log(user);
-                return res.status(400).json({ message: "User already exists" });
+                return res.status(409).json({ message: "User already exists" });
             }
 
             const salt = await bcrypt.genSalt(10);
