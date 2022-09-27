@@ -75,6 +75,7 @@ app.use(
 // routes
 app.use("/api/editor", require("./routes/editor.routes"));
 app.use("/api/auth", require("./routes/auth.routes"));
+app.use("/api/users", require("./routes/users.routes"));
 
 // 404 handler - must be last route handler
 app.use((req, res, next) => {
