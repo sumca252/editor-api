@@ -18,7 +18,7 @@ chai.use(chaiHttp);
 describe("Editor", () => {
     before(() => {
         return new Promise(async (resolve) => {
-            const db = await database.getDb();
+            const db = await database.getDb(collectionName);
 
             db.db
                 .listCollections({ name: collectionName })
@@ -39,7 +39,7 @@ describe("Editor", () => {
     });
 
     describe("DELETE /api/editor/reset", () => {
-        it("Should reset database and return status 200", (done) => {
+        it("Should return 200", (done) => {
             chai.request(server)
                 .delete("/api/editor/reset")
                 .end((err, res) => {
