@@ -1,12 +1,13 @@
 const database = require("../db/database");
 let ObjectId = require("mongodb").ObjectId;
 const defaults = require("../db/defaults.json");
+const documentsCollection = "documents";
 let db;
 
 const editor = {
     getAllData: async function getAllData(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
 
             const data = await db.collection.find({}).toArray();
 
@@ -23,7 +24,7 @@ const editor = {
     },
     insertData: async function insertData(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
             const data = await db.collection.insertOne({
                 title: req.body.title,
                 content: req.body.content,
@@ -45,7 +46,7 @@ const editor = {
     updateById: async function updateById(req, res) {
         try {
             console.log(req.params.id);
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
             const data = await db.collection.updateOne(
                 { _id: ObjectId(req.params.id) },
                 { $set: { title: req.body.title, content: req.body.content } }
@@ -64,7 +65,7 @@ const editor = {
     },
     getOneById: async function getOneById(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
             const data = await db.collection.findOne({
                 _id: ObjectId(req.params.id),
             });
@@ -82,7 +83,7 @@ const editor = {
     },
     deleteAllData: async function deleteAllData(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
             await db.collection.deleteMany({});
 
             await db.collection.insertMany(defaults);
