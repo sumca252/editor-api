@@ -30,17 +30,45 @@ const usersController = {
             await db.client.close();
         }
     },
+    getSharedWithUser: async (req, res) => {
+        try {
+            console.log(req.params.email);
+            db = await database.getDb(documentsCollection);
+
+            // Get the documents shared with the email address
+            const documents = await db.collection
+                .find({
+                    allowed_users: req.params.email,
+                })
+                .toArray();
+
+            if (documents.length === 0) {
+                return res.status(400).json({
+                    message: `No documents found shared with ${req.params.email}`,
+                });
+            }
+
+            return res.status(200).json({ data: documents });
+        } catch (error) {
+            return res.status(500).json({
+                message: "Internal server error",
+                error: error.message,
+            });
+        } finally {
+            await db.client.close();
+        }
+    },
     resetUsersCollection: async (req, res) => {
         try {
             db = await database.getDb(usersCollection);
             await db.collection.deleteMany({});
 
-            // insert many and return inserted documents
+            // insert many and return inserted documents ids
             const result = await db.collection.insertMany(defaultUsers);
 
             if (result.deletedCount === 0) {
                 return res.status(400).json({
-                    message: "No users found",
+                    message: "No users inserted",
                 });
             }
 
