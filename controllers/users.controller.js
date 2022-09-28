@@ -11,13 +11,11 @@ const usersController = {
         try {
             const { email } = req.params;
 
-            console.log(email);
-
             // Get all documents authored by the user
             db = await database.getDb(documentsCollection);
             const data = await db.collection.find({ author: email }).toArray();
 
-            if (!data) {
+            if (data.length === 0) {
                 return res.status(404).json({ message: "No data found" });
             }
 
