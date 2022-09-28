@@ -66,7 +66,7 @@ app.use(
 // enable sessions
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: process.env.SESSION_SECRET || "secret",
         resave: false,
         saveUninitialized: false,
     })
