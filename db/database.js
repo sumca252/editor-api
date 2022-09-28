@@ -2,8 +2,7 @@ const mongo = require("mongodb").MongoClient;
 
 const database = {
     getDb: async function getDb(collectionName) {
-        let dsn =
-            process.env.MONGODB_URI || "mongodb://localhost:27017/documents";
+        let dsn = process.env.MONGODB_URI || "mongodb://localhost:27017/editor";
 
         if (process.env.NODE_ENV === "test") {
             dsn = "mongodb://localhost:27017/test";
