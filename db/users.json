@@ -1,0 +1,17 @@
+[
+    {
+        "name": "John Doe",
+        "email": "john.doe@test.com",
+        "password": "$2a$12$HU0.fnl/c2AnR45A5vRJj.ZwvZEvdURkQwLuVrjxdXzC.fU22i0nm"
+    },
+    {
+        "name": "Jane Doe",
+        "email": "jane.doe@test.com",
+        "password": "$2a$12$HU0.fnl/c2AnR45A5vRJj.ZwvZEvdURkQwLuVrjxdXzC.fU22i0nm"
+    },
+    {
+        "name": "John Smith",
+        "email": "john.smith@test.com",
+        "password": "$2a$12$HU0.fnl/c2AnR45A5vRJj.ZwvZEvdURkQwLuVrjxdXzC.fU22i0nm"
+    }
+]

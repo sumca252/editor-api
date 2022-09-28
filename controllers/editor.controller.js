@@ -1,12 +1,13 @@
 const database = require("../db/database");
 let ObjectId = require("mongodb").ObjectId;
 const defaults = require("../db/defaults.json");
+const documentsCollection = "documents";
 let db;
 
 const editor = {
     getAllData: async function getAllData(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
 
             const data = await db.collection.find({}).toArray();
 
@@ -23,19 +24,28 @@ const editor = {
     },
     insertData: async function insertData(req, res) {
         try {
-            db = await database.getDb();
+            const { title, content, author, email } = req.body;
+
+            if (!title || !content || !author) {
+                return res.status(400).json({
+                    message: "Missing fields title, content or author",
+                });
+            }
+
+            db = await database.getDb(documentsCollection);
             const data = await db.collection.insertOne({
-                title: req.body.title,
-                content: req.body.content,
+                title: title,
+                content: content,
+                author: author,
+                allowed_users: [email],
             });
 
             if (data.insertedId) {
                 return res
                     .status(201)
                     .json({ id: data.insertedId, message: "Data inserted" });
-            } else {
-                return res.status(500).json({ message: "Data not inserted" });
             }
+            return res.status(500).json({ message: "Data not inserted" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
         } finally {
@@ -45,10 +55,24 @@ const editor = {
     updateById: async function updateById(req, res) {
         try {
             console.log(req.params.id);
-            db = await database.getDb();
+            const { title, content, email } = req.body;
+
+            if (!title || !content) {
+                return res.status(400).json({
+                    message: "Missing fields title or content",
+                });
+            }
+
+            db = await database.getDb(documentsCollection);
             const data = await db.collection.updateOne(
                 { _id: ObjectId(req.params.id) },
-                { $set: { title: req.body.title, content: req.body.content } }
+                {
+                    $set: {
+                        title: title,
+                        content: content,
+                        allowed_users: [email],
+                    },
+                }
             );
 
             if (data.modifiedCount) {
@@ -64,7 +88,7 @@ const editor = {
     },
     getOneById: async function getOneById(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
             const data = await db.collection.findOne({
                 _id: ObjectId(req.params.id),
             });
@@ -82,7 +106,7 @@ const editor = {
     },
     deleteAllData: async function deleteAllData(req, res) {
         try {
-            db = await database.getDb();
+            db = await database.getDb(documentsCollection);
             await db.collection.deleteMany({});
 
             await db.collection.insertMany(defaults);

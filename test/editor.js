@@ -18,7 +18,7 @@ chai.use(chaiHttp);
 describe("Editor", () => {
     before(() => {
         return new Promise(async (resolve) => {
-            const db = await database.getDb();
+            const db = await database.getDb(collectionName);
 
             db.db
                 .listCollections({ name: collectionName })
@@ -39,7 +39,7 @@ describe("Editor", () => {
     });
 
     describe("DELETE /api/editor/reset", () => {
-        it("Should reset database and return status 200", (done) => {
+        it("Should return 200", (done) => {
             chai.request(server)
                 .delete("/api/editor/reset")
                 .end((err, res) => {
@@ -71,13 +71,36 @@ describe("Editor", () => {
         it("Should return 201", (done) => {
             chai.request(server)
                 .post("/api/editor")
-                .send({ title: "Test", content: "<p>Test</p>" })
+                .send({
+                    title: "Test",
+                    content: "<p>Test</p>",
+                    author: "test@test.com",
+                    email: "",
+                })
                 .end((err, res) => {
                     res.should.have.status(201);
                     res.body.should.be.a("object");
                     res.body.should.have.property("message");
                     res.body.message.should.be.eq("Data inserted");
                     _id = res.body.id;
+                    done();
+                });
+        });
+
+        it("Should return 400", (done) => {
+            chai.request(server)
+                .post("/api/editor")
+                .send({
+                    title: "Test",
+                    content: "<p>Test</p>",
+                })
+                .end((err, res) => {
+                    res.should.have.status(400);
+                    res.body.should.be.a("object");
+                    res.body.should.have.property("message");
+                    res.body.message.should.be.eq(
+                        "Missing fields title, content or author"
+                    );
                     done();
                 });
         });

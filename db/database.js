@@ -1,8 +1,7 @@
 const mongo = require("mongodb").MongoClient;
-const collectionName = "documents";
 
 const database = {
-    getDb: async function getDb() {
+    getDb: async function getDb(collectionName) {
         let dsn =
             process.env.MONGODB_URI || "mongodb://localhost:27017/documents";
 
