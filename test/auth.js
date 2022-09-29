@@ -122,7 +122,9 @@ describe("Auth", () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a("object");
+                    res.body.should.have.property("status");
                     res.body.should.have.property("user");
+                    res.body.status.should.be.eq(200);
                     res.body.user.should.have.property("token");
                     done();
                 });
