@@ -25,7 +25,7 @@ npm run fix
 
 # REST API Endpoints
 
-## Get all data
+## Get all documents
 ### Method: GET
 >```
 > /api/editor
@@ -76,7 +76,7 @@ npm run fix
 ```
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## Create new data
+## Create a new document
 ### Method: POST
 >```
 > /api/editor
@@ -99,7 +99,7 @@ npm run fix
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## Update data by id
+## Update document by id
 ### Method: PUT
 >```
 > /api/editor/631260fcbfc8637e4e376603
