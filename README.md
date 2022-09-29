@@ -23,25 +23,43 @@ npm run fix
 ```
 -----------
 
-## ENDPOINTS 
+# REST API Endpoints
+
 ## Get all data
 ### Method: GET
 >```
->/api/editor
+> /api/editor
 >```
 ### Response: 200
 ```json
 {
     "data": [
         {
-            "_id": "631ddf8bc31320179550e28f",
+            "_id": "6334644a08300a3b809c1d29",
             "title": "Lorem Ipsum",
-            "content": "\"<h1 class=\\\"ql-align-justify\\\"><strong><em><u>Lorem ipsum </u></em></strong></h1><p class=\\\"ql-align-justify\\\">dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.</p><p class=\\\"ql-align-justify\\\">Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo <a href=\\\"https://www.lipsum.com/feed/html\\\" rel=\\\"noopener noreferrer\\\" target=\\\"_blank\\\"><strong><em>ultrices </em></strong></a>vitae. </p><p class=\\\"ql-align-justify\\\"><br></p><ul><li class=\\\"ql-align-justify\\\">Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor. </li><li class=\\\"ql-align-justify\\\">Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus. </li><li class=\\\"ql-align-justify\\\">Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.</li></ul><p class=\\\"ql-align-justify\\\"><br></p><p class=\\\"ql-align-justify\\\">Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.</p><p><br></p>\""
+            "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+            "author": "john.doe@test.com",
+            "allowed_users": [
+                "jane.doe@test.com",
+                "john.smith@test.com"
+            ]
         },
         {
-            "_id": "631ddf8bc31320179550e290",
-            "title": "Lorem ipsum ",
-            "content": "\"<h1 class=\\\"ql-align-justify\\\"><strong><em><u>Lorem ipsum </u></em></strong></h1><p class=\\\"ql-align-justify\\\">dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.</p><p class=\\\"ql-align-justify\\\">Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo <a href=\\\"https://www.lipsum.com/feed/html\\\" rel=\\\"noopener noreferrer\\\" target=\\\"_blank\\\"><strong><em>ultrices </em></strong></a>vitae.</p><p class=\\\"ql-align-justify\\\"><br></p><ul><li class=\\\"ql-align-justify\\\">Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.</li><li class=\\\"ql-align-justify\\\">Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.</li><li class=\\\"ql-align-justify\\\">Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.</li></ul><p class=\\\"ql-align-justify\\\"><br></p><p class=\\\"ql-align-justify\\\">Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.</p><p><br></p>\""
+            "_id": "6334644a08300a3b809c1d2a",
+            "title": "Lorem Ipsum",
+            "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+            "author": "jane.doe@test.com",
+            "allowed_users": [
+                "john.doe@test.com",
+                "john.smith@test.com"
+            ]
+        },
+        {
+            "_id": "6334644a08300a3b809c1d2b",
+            "title": "Lorem Ipsum",
+            "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+            "author": "john.smith@test.com",
+            "allowed_users": []
         },
         ...
     ]
@@ -49,6 +67,13 @@ npm run fix
 ```
 
 
+
+### Response: 404
+```json
+{
+    "message": "No data found"
+}
+```
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
 ## Create new data
@@ -59,18 +84,25 @@ npm run fix
 ### Response: 201
 ```json
 {
-    "id": "631dde527ca27c933b041247",
+    "id": "6335673f23df0cdc3eeb0275",
     "message": "Data inserted"
+}
+```
+
+### Response: 400
+```json
+{
+    "message": "Missing fields title, content or author"
 }
 ```
 
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## Update data
+## Update data by id
 ### Method: PUT
 >```
-> /api/editor/:id
+> /api/editor/631260fcbfc8637e4e376603
 >```
 ### Response: 200
 ```json
@@ -78,42 +110,174 @@ npm run fix
     "message": "Data updated"
 }
 ```
-### Response: 500
+
+### Response: 400
 ```json
 {
-    "message": "Data not updated"
+    "message": "Missing fields title or content"
 }
 ```
 
 
+
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## Get data by id 
+## Get a document by id
 ### Method: GET
 >```
-> /api/editor/:id
+> /api/editor/632f86e155d058273dd47b1a
 >```
 ### Response: 200
 ```json
 {
     "data": {
-        "_id": "631ddf8bc31320179550e28f",
+        "_id": "632f86e155d058273dd47b1a",
         "title": "Lorem Ipsum",
-        "content": "\"<h1 class=\\\"ql-align-justify\\\"><strong><em><u>Lorem ipsum </u></em></strong></h1><p class=\\\"ql-align-justify\\\">dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.</p><p class=\\\"ql-align-justify\\\">Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo <a href=\\\"https://www.lipsum.com/feed/html\\\" rel=\\\"noopener noreferrer\\\" target=\\\"_blank\\\"><strong><em>ultrices </em></strong></a>vitae. </p><p class=\\\"ql-align-justify\\\"><br></p><ul><li class=\\\"ql-align-justify\\\">Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor. </li><li class=\\\"ql-align-justify\\\">Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus. </li><li class=\\\"ql-align-justify\\\">Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.</li></ul><p class=\\\"ql-align-justify\\\"><br></p><p class=\\\"ql-align-justify\\\">Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.</p><p><br></p>\""
+        "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+        "author": "john.smith@test.com",
+        "allowed_users": []
     }
 }
 ```
 
-### Response: 500
+
+### Response: 404
 ```json
 {
-    "message": "Data not updated"
+    "message": "No data found"
 }
 ```
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
-## Reset databse with default dummy data
+## Get user's documents
+### Method: GET
+>```
+> /api/users/author/jane.doe@test.com
+>```
+### Response: 200
+```json
+{
+    "data": [
+        {
+            "_id": "633568b39a61bdcddcbb4c70",
+            "title": "Lorem Ipsum",
+            "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+            "author": "jane.doe@test.com",
+            "allowed_users": [
+                "john.doe@test.com",
+                "john.smith@test.com"
+            ]
+        }
+    ]
+}
+```
+
+### Response: 404
+```json
+{
+    "message": "No data found"
+}
+```
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## Get shared documents with user
+### Method: GET
+>```
+> /api/users/share/john.smith@test.com
+>```
+### Response: 200
+```json
+{
+    "data": [
+        {
+            "_id": "633568b39a61bdcddcbb4c6f",
+            "title": "Lorem Ipsum",
+            "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+            "author": "john.doe@test.com",
+            "allowed_users": [
+                "jane.doe@test.com",
+                "john.smith@test.com"
+            ]
+        },
+        {
+            "_id": "633568b39a61bdcddcbb4c70",
+            "title": "Lorem Ipsum",
+            "content": "{\"ops\":[{\"attributes\":{\"underline\":true,\"italic\":true,\"bold\":true},\"insert\":\"Lorem ipsum \"},{\"attributes\":{\"align\":\"justify\",\"header\":1},\"insert\":\"\\n\"},{\"insert\":\"dolor sit amet, consectetur adipiscing elit. Praesent quis magna fermentum, maximus lorem suscipit, scelerisque turpis. Duis sodales diam nec lectus auctor, ac luctus justo sagittis. Phasellus at nulla sodales, convallis lacus varius, commodo nunc. Quisque consectetur nisl non tortor consectetur, id molestie dolor accumsan. Ut suscipit odio et nunc vehicula pellentesque. Vestibulum id magna neque. Sed dolor dolor, hendrerit in mi eget, rutrum semper ligula. Vestibulum tincidunt molestie euismod. Vivamus condimentum, arcu a facilisis iaculis, dui nisl pretium sem, sed feugiat nunc elit non tortor. Donec vel libero sodales, tincidunt elit id, pellentesque turpis. Donec commodo ultrices dui vel scelerisque. Sed suscipit tellus neque, ac placerat sapien finibus at.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Cras pharetra vulputate mauris, a pulvinar turpis pellentesque at. Morbi eget magna eu metus sollicitudin euismod in at dui. Etiam magna orci, pellentesque aliquam rhoncus commodo, lobortis vestibulum felis. Duis pellentesque aliquet orci, et congue leo \"},{\"attributes\":{\"italic\":true,\"bold\":true,\"link\":\"https://www.lipsum.com/feed/html\"},\"insert\":\"ultrices \"},{\"insert\":\"vitae.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\\n\"},{\"insert\":\"Mauris a justo laoreet, rhoncus metus ut, hendrerit nunc. Cras id euismod nulla, in tempor dolor.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Maecenas volutpat quis mi ac iaculis. Nulla non lectus id sem aliquet maximus.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"insert\":\"Aliquam placerat odio orci. Maecenas molestie cursus lorem sed venenatis. Ut justo ipsum, varius eget quam id, scelerisque sodales lorem.\"},{\"attributes\":{\"align\":\"justify\",\"list\":\"bullet\"},\"insert\":\"\\n\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"Fusce eu scelerisque mi. Nam ac varius augue, vel gravida leo. Nunc posuere fringilla nisl, euismod ultricies justo placerat quis. Vivamus lectus enim, consectetur sit amet pretium vitae, luctus sed arcu. In enim eros, venenatis ac convallis quis, pulvinar quis arcu. Nam magna urna, imperdiet vitae nisi sed, malesuada malesuada leo. Nulla a dui nulla. Curabitur feugiat varius neque, quis gravida ex ornare et. Fusce viverra non turpis sed dapibus. Nullam nec velit quis lectus condimentum accumsan sed vel lacus. Phasellus elementum velit at posuere egestas. Fusce euismod tincidunt nisi nec convallis. Duis fringilla tempus auctor.\"},{\"attributes\":{\"align\":\"justify\"},\"insert\":\"\\n\"},{\"insert\":\"\\n\\n\\n\"}]}",
+            "author": "jane.doe@test.com",
+            "allowed_users": [
+                "john.doe@test.com",
+                "john.smith@test.com"
+            ]
+        }
+    ]
+}
+```
+
+
+### Response: 404
+
+```json
+{
+    "message": "No data found"
+}
+```
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## Register 
+### Method: POST
+>```
+> /api/auth/register
+>```
+### Response: 201
+```json
+{
+    "message": "User created",
+    "user": {
+        "id": "633569605920da448a4ae99c",
+        "email": "test@test.com"
+    }
+}
+```
+### Response: 409
+```json
+{
+    "message": "User already exists"
+}
+```
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## Login user
+### Method: POST
+>```
+> /api/auth/login
+>```
+### Response: 200
+```json
+{
+    "status": 200,
+    "user": {
+        "id": "633569605920da448a4ae99c",
+        "email": "test@test.com",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2NjQ0NDQ4MjEsImV4cCI6MTY2NDUzMTIyMX0.kcyhljQFxsMU2GHqL_l9ioBV1ar6O8_IPge8kcu9uXY"
+    }
+}
+```
+
+### Response: 400
+```json
+{
+    "message": "Invalid password!"
+}
+```
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## Reset Documents
 ### Method: DELETE
 >```
 > /api/editor/reset
@@ -124,3 +288,21 @@ npm run fix
     "message": "Data deleted and inserted defaults"
 }
 ```
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## Reset Users
+### Method: DELETE
+>```
+> /api/users/reset
+>```
+### Response: 200
+```json
+{
+    "message": "Users collection reset"
+}
+```
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
