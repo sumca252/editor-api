@@ -185,7 +185,7 @@ npm run fix
 ## Get shared documents with user
 ### Method: GET
 >```
-> /api/users/share/john.smith@test.com
+> /api/users/shared/john.smith@test.com
 >```
 ### Response: 200
 ```json
