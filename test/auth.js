@@ -112,8 +112,8 @@ describe("Auth", () => {
     describe("POST /api/auth/login", () => {
         it("Should return 200", (done) => {
             const user = {
-                email: "test.user@test.com",
-                password: "password",
+                email: "john.smith@test.com",
+                password: "pass",
             };
 
             chai.request(server)
