@@ -5,6 +5,7 @@ const express = require("express");
 const session = require("express-session");
 const morgan = require("morgan");
 const cors = require("cors");
+const { graphqlHTTP } = require("express-graphql");
 
 const app = express();
 
@@ -76,6 +77,18 @@ app.use(
 app.use("/api/editor", require("./routes/editor.routes"));
 app.use("/api/auth", require("./routes/auth.routes"));
 app.use("/api/users", require("./routes/users.routes"));
+
+// GraphQL API endpoint
+
+const schema = require("./graphql/schema");
+
+app.use(
+    "/graphql",
+    graphqlHTTP({
+        graphiql: true,
+        schema,
+    })
+);
 
 // 404 handler - must be last route handler
 app.use((req, res, next) => {
