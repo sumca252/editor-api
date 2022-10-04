@@ -4,10 +4,14 @@
 const router = require("express").Router();
 
 const {
+    getAllUsers,
     getAuthoredByUser,
     getSharedWithUser,
     resetUsersCollection,
 } = require("../controllers/users.controller");
+
+// GET /users - get all users
+router.get("/", getAllUsers);
 
 // GET /api/users/author/:email - Get all documents authored by a user
 router.get("/author/:email", getAuthoredByUser);
