@@ -1,13 +1,7 @@
 /**
  * Authentication controller
  */
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-
-const database = require("../db/database");
-const usersCollection = "users";
-
-let db;
+const usersModel = require("../models/users.model");
 
 const authController = {
     registerUser: async (req, res) => {
@@ -20,38 +14,27 @@ const authController = {
                 });
             }
 
-            db = await database.getDb(usersCollection);
-            const user = await db.collection.findOne({ email });
+            const user = await usersModel.getUserByEmail(email);
 
             if (user) {
                 return res.status(409).json({ message: "User already exists" });
             }
 
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(password, salt);
+            const newUser = await usersModel.createUser(email, password);
 
-            const newUser = {
-                email: email,
-                password: hashedPassword,
-            };
-
-            const result = await db.collection.insertOne(newUser);
-
-            if (result.insertedId) {
+            if (newUser) {
                 return res.status(201).json({
                     message: "User created",
                     user: {
-                        id: result.insertedId,
+                        id: newUser.insertedId,
                         email: email,
                     },
                 });
             }
+
             return res.status(500).json({ message: "Something went wrong" });
         } catch (error) {
-            console.log(error);
             return res.status(500).json({ message: "Something went wrong" });
-        } finally {
-            await db.client.close();
         }
     },
     loginUser: async (req, res) => {
@@ -64,8 +47,7 @@ const authController = {
                     .json({ message: "Missing email or password" });
             }
 
-            db = await database.getDb(usersCollection);
-            const user = await db.collection.findOne({ email });
+            const user = await usersModel.getUserByEmail(email);
 
             if (!user) {
                 return res
@@ -73,34 +55,35 @@ const authController = {
                     .json({ status: 400, message: "User does not exist" });
             }
 
-            const isMatch = await bcrypt.compare(password, user.password);
+            const isPasswordValid = await usersModel.validatePassword(
+                password,
+                user.password
+            );
 
-            if (!isMatch) {
+            if (!isPasswordValid) {
                 return res
                     .status(400)
                     .json({ status: 400, message: "Invalid password!" });
             }
 
-            const token = jwt.sign(
-                { email: user.email },
-                process.env.JWT_SECRET,
-                {
-                    expiresIn: "24h",
-                }
-            );
+            const token = await usersModel.generateToken(user);
 
-            return res.status(200).json({
-                status: 200,
-                user: {
-                    id: user._id,
-                    email: user.email,
-                    token: token,
-                },
+            if (token) {
+                return res.status(200).json({
+                    status: 200,
+                    user: {
+                        id: user._id,
+                        email: user.email,
+                        token: token,
+                    },
+                });
+            }
+
+            return res.status(500).json({
+                message: "Internal server error",
             });
         } catch (err) {
             return res.status(500).json({ message: err.message });
-        } finally {
-            await db.client.close();
         }
     },
 };

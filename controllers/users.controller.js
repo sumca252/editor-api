@@ -1,85 +1,76 @@
-const database = require("../db/database");
-const defaultUsers = require("../db/users.json");
-
-const usersCollection = "users";
-const documentsCollection = "documents";
-
-let db;
+/**
+ * Users controller
+ */
+const usersModel = require("../models/users.model");
 
 const usersController = {
+    getAllUsers: async (req, res) => {
+        try {
+            const data = await usersModel.getAllUsers();
+
+            if (data) {
+                return res.status(200).json({ data });
+            }
+            return res.status(404).json({ message: "No data found" });
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        }
+    },
     getAuthoredByUser: async (req, res) => {
         try {
             const { email } = req.params;
 
-            // Get all documents authored by the user
-            db = await database.getDb(documentsCollection);
-            const data = await db.collection.find({ author: email }).toArray();
+            const documents = await usersModel.getDocumentsAuthoredByUser(
+                email
+            );
 
-            if (data.length === 0) {
-                return res.status(404).json({ message: "No data found" });
+            if (documents) {
+                return res.status(200).json({ data: documents });
             }
 
-            return res.status(200).json({ data: data });
+            return res.status(404).json({ message: "No data found" });
         } catch (error) {
             return res
                 .status(500)
                 .json({ status: 500, message: error.message });
-        } finally {
-            await db.client.close();
         }
     },
     getSharedWithUser: async (req, res) => {
         try {
-            console.log(req.params.email);
-            db = await database.getDb(documentsCollection);
+            const { email } = req.params;
 
-            // Get the documents shared with the email address
-            const documents = await db.collection
-                .find({
-                    allowed_users: req.params.email,
-                })
-                .toArray();
+            const documents = await usersModel.getDocumentsSharedWithUser(
+                email
+            );
 
-            if (documents.length === 0) {
-                return res.status(400).json({
-                    message: `No documents found shared with ${req.params.email}`,
-                });
+            if (documents) {
+                return res.status(200).json({ data: documents });
             }
-
-            return res.status(200).json({ data: documents });
+            return res
+                .status(404)
+                .json({ message: "No documents found shared with that email" });
         } catch (error) {
             return res.status(500).json({
                 message: "Internal server error",
                 error: error.message,
             });
-        } finally {
-            await db.client.close();
         }
     },
     resetUsersCollection: async (req, res) => {
         try {
-            db = await database.getDb(usersCollection);
-            await db.collection.deleteMany({});
+            const result = await usersModel.resetUsers();
 
-            // insert many and return inserted documents ids
-            const result = await db.collection.insertMany(defaultUsers);
-
-            if (result.deletedCount === 0) {
-                return res.status(400).json({
-                    message: "No users inserted",
+            if (result) {
+                return res.status(200).json({
+                    insertedIds: result.insertedIds,
+                    message: "Users collection reset",
                 });
             }
-
-            return res.status(200).json({
-                insertedIds: result.insertedIds,
-                message: "Users collection reset",
-            });
+            return res.status(500).json({ message: "Internal server error" });
         } catch (error) {
             return res.status(500).json({
                 message: error.message,
             });
-        } finally {
-            await db.client.close();
         }
     },
 };

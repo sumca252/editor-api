@@ -1,25 +1,19 @@
-const database = require("../db/database");
-let ObjectId = require("mongodb").ObjectId;
-const defaults = require("../db/defaults.json");
-const documentsCollection = "documents";
-let db;
+/**
+ * Editor controller
+ */
+const editorModel = require("../models/editor.models");
 
-const editor = {
+const editorController = {
     getAllData: async function getAllData(req, res) {
         try {
-            db = await database.getDb(documentsCollection);
+            const result = await editorModel.getAllDocuments();
 
-            const data = await db.collection.find({}).toArray();
-
-            if (data.length > 0) {
-                return res.status(200).json({ data: data });
-            } else {
-                return res.status(404).json({ message: "No data found" });
+            if (result) {
+                return res.status(200).json({ data: result });
             }
+            return res.status(404).json({ message: "No data found" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
-        } finally {
-            await db.client.close();
         }
     },
     insertData: async function insertData(req, res) {
@@ -32,8 +26,7 @@ const editor = {
                 });
             }
 
-            db = await database.getDb(documentsCollection);
-            const data = await db.collection.insertOne({
+            const data = await editorModel.createDocument({
                 title: title,
                 content: content,
                 author: author,
@@ -48,8 +41,6 @@ const editor = {
             return res.status(500).json({ message: "Data not inserted" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
-        } finally {
-            await db.client.close();
         }
     },
     updateById: async function updateById(req, res) {
@@ -63,63 +54,49 @@ const editor = {
                 });
             }
 
-            db = await database.getDb(documentsCollection);
-            const data = await db.collection.updateOne(
-                { _id: ObjectId(req.params.id) },
-                {
-                    $set: {
-                        title: title,
-                        content: content,
-                        allowed_users: [email],
-                    },
-                }
-            );
+            const data = await editorModel.updateDocumentById({
+                documentId: req.params.id,
+                title: title,
+                content: content,
+                allowedUsers: [email],
+            });
 
-            if (data.modifiedCount) {
+            if (data) {
                 return res.status(200).json({ message: "Data updated" });
-            } else {
-                return res.status(500).json({ message: "Data not updated" });
             }
+            return res.status(500).json({ message: "Data not updated" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
-        } finally {
-            await db.client.close();
         }
     },
     getOneById: async function getOneById(req, res) {
         try {
-            db = await database.getDb(documentsCollection);
-            const data = await db.collection.findOne({
-                _id: ObjectId(req.params.id),
-            });
+            const data = await editorModel.getDocumentById(req.params.id);
 
             if (data) {
                 return res.status(200).json({ data: data });
-            } else {
-                return res.status(404).json({ message: "No data found" });
             }
+            return res.status(404).json({ message: "No data found" });
         } catch (error) {
             return res.status(500).json({ message: error.message });
-        } finally {
-            await db.client.close();
         }
     },
     deleteAllData: async function deleteAllData(req, res) {
         try {
-            db = await database.getDb(documentsCollection);
-            await db.collection.deleteMany({});
+            const result = await editorModel.resetAllDocuments();
 
-            await db.collection.insertMany(defaults);
-
-            return res
-                .status(200)
-                .json({ message: "Data deleted and inserted defaults" });
+            if (result) {
+                return res
+                    .status(200)
+                    .json({ message: "Data deleted and inserted defaults" });
+            }
+            return res.status(500).json({ message: "Data not deleted" });
         } catch (error) {
-            return res.status(500).json({ message: error.message });
-        } finally {
-            await db.client.close();
+            return res.status(500).json({
+                message: error.message,
+            });
         }
     },
 };
 
-module.exports = editor;
+module.exports = editorController;
