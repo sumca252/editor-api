@@ -60,6 +60,12 @@ const usersController = {
         try {
             const { documentId, email } = req.body;
 
+            if (!documentId || !email) {
+                return res.status(400).json({
+                    message: "Missing required fields: documentId, email",
+                });
+            }
+
             const document = await usersModel.shareDocumentWithUser(
                 documentId,
                 email

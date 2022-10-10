@@ -45,7 +45,6 @@ const editorController = {
     },
     updateById: async function updateById(req, res) {
         try {
-            console.log(req.params.id);
             const { title, content, email } = req.body;
 
             if (!title || !content) {
