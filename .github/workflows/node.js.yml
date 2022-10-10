@@ -9,8 +9,8 @@ on:
 env:
   JWT_SECRET: "XS2O+N6FxVmKTRPOAZnQZly+CZGXrqmZRw=="
   SESSION_SECRET: "85psKyr0CJebk5umuYtF7FtPgJL93Irt1A=="
-  MAILGUN_API_KEY: ""
-  MAILGUN_DOMAIN: ""
+  MAILGUN_API_KEY: "61b70ce33dd6056347f02efe6281fee9-b0ed5083-aa9ea3f2"
+  MAILGUN_DOMAIN: "sandboxf9fcf0efdf5d4529af709541d9e720f1.mailgun.org"
 jobs:
   build:
 
