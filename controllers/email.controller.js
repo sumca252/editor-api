@@ -14,7 +14,8 @@ const client = mg.client({
 const emailController = {
     sendEmail: async (req, res) => {
         const { from, to, documentId } = req.body;
-        console.log(req.body);
+
+        // console.log(req.body);
 
         if (!from || !to || !documentId) {
             return res.status(400).json({
