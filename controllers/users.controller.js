@@ -56,6 +56,26 @@ const usersController = {
             });
         }
     },
+    shareDocumentWithUser: async (req, res) => {
+        try {
+            const { documentId, email } = req.body;
+
+            const document = await usersModel.shareDocumentWithUser(
+                documentId,
+                email
+            );
+
+            if (document) {
+                return res.status(200).json({ message: "Document shared" });
+            }
+            return res.status(404).json({ message: "Document already shared" });
+        } catch (error) {
+            return res.status(500).json({
+                message: "Internal server error",
+                error: error.message,
+            });
+        }
+    },
     resetUsersCollection: async (req, res) => {
         try {
             const result = await usersModel.resetUsers();
