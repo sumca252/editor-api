@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const database = require("../db/database");
 const defaultUsers = require("../db/users.json");
+let ObjectId = require("mongodb").ObjectId;
 
 const usersCollection = "users";
 const documentsCollection = "documents";
@@ -58,6 +59,38 @@ const usersModel = {
             await db.client.close();
         }
     },
+    shareDocumentWithUser: async (documentId, email) => {
+        try {
+            db = await database.getDb(documentsCollection);
+            const document = await db.collection.findOne({
+                _id: ObjectId(documentId),
+            });
+
+            if (document) {
+                const sharedWith = document.allowed_users;
+
+                if (sharedWith.includes(email)) {
+                    return false;
+                }
+
+                sharedWith.push(email);
+
+                const updatedDocument = await db.collection.findOneAndUpdate(
+                    { _id: document._id },
+                    { $set: { allowed_users: sharedWith } },
+                    { returnOriginal: false }
+                );
+
+                return updatedDocument.value;
+            }
+            return false;
+        } catch (error) {
+            throw new Error(error.message);
+        } finally {
+            await db.client.close();
+        }
+    },
+
     getDocumentsSharedWithUser: async (email) => {
         try {
             db = await database.getDb(documentsCollection);
