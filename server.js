@@ -81,8 +81,6 @@ app.use("/api/comments", require("./routes/comments.routes"));
 app.use("/api/email", require("./routes/email.routes"));
 app.use("/api/code", require("./routes/code.routes"));
 
-
-
 // GraphQL API endpoint
 const schema = require("./graphql/schema");
 
@@ -101,8 +99,6 @@ app.use((req, res, next) => {
 });
 
 const server = httpServer.listen(port, () => {
-    console.log(`Node environment: ${process.env.NODE_ENV}`);
-    console.log(`mongoDB connection string: ${process.env.MONGODB_URI}`);
     console.log(`Listening on port ${port}`);
 });
 
